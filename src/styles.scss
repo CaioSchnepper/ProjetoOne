@@ -2,3 +2,15 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+
+// this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#0F131C';
+// this.elementRef.nativeElement.ownerDocument.body.style.color = 'white';
+// this.elementRef.nativeElement.ownerDocument.body.style.fontFamily = ['Share Tech', 'sans-serif'];
+// this.elementRef.nativeElement.ownerDocument.body.style.margin = "0"
+
+body{
+    background-color: #0F131C;
+    color: white;
+    font-family: 'Share Tech', 'sans-serif';
+    margin: 0;
+}

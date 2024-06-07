@@ -1,149 +1,26 @@
+<header class="nav">
 
-<div class="flex justify-content-center">
-  <div style="width: 80%;">
-    <main class="grid">
-      <!-- Calçada -->
-      <div class="col-12 text-center h-5rem bg-gray-400 font-bold">Calçada</div>
-    
-      <!-- Casa 1 - Esquerda -->
-      <section class="col-6">
-        <div class="comodos grid">
-          <div
-            (click)="showDialog(comodo, casaEsquerda)"
-            [class]="converteCssComodo(comodo)"
-            *ngFor="let comodo of casaEsquerda.comodos"
-          >
-          <div mb class="mb-3 font-bold" >
-            {{comodo.nome}}
-          </div>
-            <div class="flex flex-wrap gap-4 justify-content-center">
-              <div >
-                <span class="font-semibold">2,4GHz</span>
-                <div class="mt-2 cursor-pointer" pTooltip="Nível de Sinal">
-                  <i class="pi pi-wifi"></i>
-                  {{comodo.nivelSinal2ghz}}
-                </div>
-                <div class="cursor-pointer" pTooltip="Velocidade">
-                  <i class="pi pi-gauge"></i>
-                  {{comodo.velocidade2ghz}}
-                </div>
-              </div>
-
-              <div >
-                <span class="font-semibold">5 GHz</span>
-                <div class="mt-2 cursor-pointer" pTooltip="Nível de Sinal">
-                  <i class="pi pi-wifi"></i>
-                  {{comodo.nivelSinal5hz}}
-                </div>
-                <div class="cursor-pointer" pTooltip="Velocidade">
-                  <i class="pi pi-gauge"></i>
-                  {{comodo.velocidade5ghz}}
-                </div>
-              </div>
-
-              <div >
-                <span class="font-semibold">Interferência</span>
-                <div class="mt-2 cursor-pointer" pTooltip="Interferência">
-                  <i class="pi pi-wave-pulse"></i>
-                  {{comodo.nivelSinal5hz}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    
-      <!-- Casa 2 - Direita   -->
-      <section class="coluna col-6">
-        <div class="comodos grid">
-          <div 
-            (click)="showDialog(comodo, casaDireita)" 
-            [class]="converteCssComodo(comodo)" 
-            *ngFor="let comodo of casaDireita.comodos"
-          >
-          <div mb class="mb-3 font-bold" >
-            {{comodo.nome}}
-          </div>
-            <div class="flex flex-wrap gap-4 justify-content-center">
-              <div >
-                <span class="font-semibold">2,4GHz</span>
-                <div class="mt-2 cursor-pointer" pTooltip="Nível de Sinal">
-                  <i class="pi pi-wifi"></i>
-                  {{comodo.nivelSinal2ghz}}
-                </div>
-                <div class="cursor-pointer" pTooltip="Velocidade">
-                  <i class="pi pi-gauge"></i>
-                  {{comodo.velocidade2ghz}}
-                </div>
-              </div>
-
-              <div >
-                <span class="font-semibold">5 GHz</span>
-                <div class="mt-2 cursor-pointer" pTooltip="Nível de Sinal">
-                  <i class="pi pi-wifi"></i>
-                  {{comodo.nivelSinal5hz}}
-                </div>
-                <div class="cursor-pointer" pTooltip="Velocidade">
-                  <i class="pi pi-gauge"></i>
-                  {{comodo.velocidade5ghz}}
-                </div>
-              </div>
-
-              <div >
-                <span class="font-semibold">Interferência</span>
-                <div class="mt-2 cursor-pointer" pTooltip="Interferência">
-                  <i class="pi pi-wave-pulse"></i>
-                  {{comodo.nivelSinal5hz}}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+  <div class="flex justify-content-between pr-5 align-items-center">
+    <a routerLink="">
+      <img  class="logo" src="../assets/logo.jpeg">
+    </a>
   
-  </div>
-</div>
-
-<p-dialog 
-  [header]="comodoSelecionado.nome" 
-  [(visible)]="mostraDialog"
-  [modal]="true"
-  [dismissableMask]="true"
-  [closeOnEscape]="true"
-  [responsive]="true"
-  [closable]="true"
-  [style]="{ width: '50vw' }"
-  >
-  <div class="grid">
-    <div class="col-6 flex flex-column">
-        <label class="text-left" for="sinal2ghz">Nível de Sinal (dbm) 2,4GHz</label>
-        <input id="sinal2ghz" [(ngModel)]="comodoSelecionado.nivelSinal2ghz" type="text" pInputText placeholder="Search" class="mt-1"/>
-    </div>
-
-    <div class="col-6 flex flex-column">
-      <label class="text-left" for="velocidade2ghz">Velocidade (Mbps) 2,4GHz</label>
-      <input id="velocidade2ghz" [(ngModel)]="comodoSelecionado.velocidade2ghz" type="text" pInputText placeholder="Search" class="mt-1"/>
-    </div>
-
-    <div class="col-6 flex flex-column">
-      <label class="text-left" for="sinal5ghz">Nível de Sinal (dbm) 5GHz</label>
-      <input id="sinal5ghz" [(ngModel)]="comodoSelecionado.nivelSinal5hz" type="text" pInputText placeholder="Search" class="mt-1"/>
-    </div>
-
-
-    <div class="col-6 flex flex-column">
-      <label class="text-left" for="velocidade5ghz">Velocidade (Mbps) 5GHz</label>
-      <input id="velocidade5ghz" [(ngModel)]="comodoSelecionado.velocidade5ghz" type="text" pInputText placeholder="Search" class="mt-1"/>
-    </div>
-
-    <div class="col-4 flex flex-column">
-      <label class="text-left" for="interferencia">Interferência</label>
-      <input id="interferencia" [(ngModel)]="comodoSelecionado.nivelInterferencia" type="text" pInputText placeholder="Search" class="mt-1"/>
-    </div>
+    <!-- <span *ngIf="!ehHome()">
+      <nav class="flex gap-3 justify-content-center">
+        <p-button  
+            label="Mapa"
+            (onClick)="goToPlanta()"
+        />
+    
+        <p-button 
+            label="Gráficos"
+            (onClick)="goToGraficos()"
+        />
+      </nav>
+  
+    </span> -->
 
   </div>
-  <div class="flex justify-content-end">
-    <p-button (onClick)="autalizarRegistro()" severity="success" label="Atualizar" icon="pi pi-check"></p-button>
-  </div>
-</p-dialog>
+</header>
+
+<router-outlet/>

@@ -1,17 +1,18 @@
-.grid {
-  text-align: center;
+// st?yle="background-color: #31353E; height: 100%;"
+.nav{
+  background-color: #31353E;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 77px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  margin: 0;
 }
 
-.comodos {
-  .col-5, .col-4, .col-12, .col-7, .col-2 {
-    border: 3px solid black;
-  }
+.logo{
+  max-width: 100%;
+  height: auto;
 }
 
-.coluna {
-  border-left: 7px solid black;
-}
 
-.lavanderia {
-  background-color: var(--bg-primary);
-}
